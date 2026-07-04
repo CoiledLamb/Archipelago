@@ -19,6 +19,7 @@ item_table: List[ItemDict] = [
     {"name": "Magnum Ammo", "id": base_id + 7, "count": 0, "classification": ItemClassification.useful},
     {"name": "Pocket Light", "id": base_id + 8, "count": 1, "classification": ItemClassification.progression},
     {"name": "Handgun Laser Sight", "id": base_id + 9, "count": 1, "classification": ItemClassification.useful},
+    {"name": "Bronze Key", "id": base_id + 10, "count": 1, "classification": ItemClassification.progression},
 ]
 
 group_table: Dict[str, Set[str]] = {

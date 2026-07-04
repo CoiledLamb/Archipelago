@@ -9,6 +9,7 @@ class Area(str, Enum):
     StationSquare = "Station Square"
     Restroom = "Restroom"
     FairyForest = "Fairy Forest"
+    FairyPool = "Fairy Pool"
 
 class LocationInfo(TypedDict):
     name: str
@@ -128,6 +129,13 @@ location_table: List[LocationInfo] = [
         "id": base_id + 19,
         "breakable": False,
         "area": Area.FairyForest,
+        "additionalAreas": []},
+
+    # Fairy Pool
+    {"name": "Fairy Pool - Water Fairy",
+        "id": base_id + 20,
+        "breakable": False,
+        "area": Area.FairyPool,
         "additionalAreas": []},
 ]
 

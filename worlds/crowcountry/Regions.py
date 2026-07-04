@@ -12,6 +12,7 @@ def create_regions(self):
     station_square = Region("Station Square", self.player, self.multiworld)
     restroom = Region("Restroom", self.player, self.multiworld)
     fairy_forest = Region("Fairy Forest", self.player, self.multiworld)
+    fairy_pool = Region("Fairy Pool", self.player, self.multiworld)
 
     for loc in self.location_name_to_id.keys():
         if self.location_name_to_area[loc] == "Roadside":
@@ -24,6 +25,8 @@ def create_regions(self):
             restroom.locations.append(CrowCountryLocation(self.player, loc, self.location_name_to_id[loc], restroom))
         elif self.location_name_to_area[loc] == "Fairy Forest":
             fairy_forest.locations.append(CrowCountryLocation(self.player, loc, self.location_name_to_id[loc], fairy_forest))
+        elif self.location_name_to_area[loc] == "Fairy Pool":
+            fairy_pool.locations.append(CrowCountryLocation(self.player, loc, self.location_name_to_id[loc], fairy_pool))
         else:
             warning(f"Location {loc} has an invalid area {self.location_name_to_area[loc]}")
 
@@ -42,6 +45,8 @@ def create_regions(self):
     park_entrance.connect(station_square)
     station_square.connect(restroom)
     station_square.connect(fairy_forest)
+    # fairy tree passage (puzzle-gated in-game, not item-gated)
+    fairy_forest.connect(fairy_pool)
     fairy_forest.connect(pool)
 
     #menu_region.connect(roadside, "Vacation Beach Main Gate", lambda state: state.has("Vacation Beach Gate Unlock", self.player))
@@ -51,6 +56,7 @@ def create_regions(self):
     self.multiworld.regions.append(station_square)
     self.multiworld.regions.append(restroom)
     self.multiworld.regions.append(fairy_forest)
+    self.multiworld.regions.append(fairy_pool)
     self.multiworld.regions.append(pool)
     
     #self.multiworld.completion_condition[self.player] = lambda state: (state.has_group("Gates", self.player, 3))
