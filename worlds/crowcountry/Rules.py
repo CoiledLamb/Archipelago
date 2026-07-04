@@ -6,6 +6,6 @@ def create_rules(self, location_table):
     multiworld = self.multiworld
     player = self.player
 
-    # Placeholder goal until real progression/goal logic exists: the only
-    # progression item in the pool is the Pocket Light.
-    multiworld.completion_condition[player] = lambda state: state.has("Pocket Light", player)
+    # Goal: defeat Edward Crowley (Victory event placed in Regions.py; the
+    # client sends StatusUpdate(ClientGoal) when the Ending Sequence loads)
+    multiworld.completion_condition[player] = lambda state: state.has("Victory", player)

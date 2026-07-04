@@ -27,11 +27,22 @@ def create_regions(self):
         else:
             warning(f"Location {loc} has an invalid area {self.location_name_to_area[loc]}")
 
+    # goal event: killing Edward Crowley (the Pool boss fight ends the game).
+    # The Pool region is a stub until the real region graph lands; the client
+    # reports the kill via StatusUpdate when the Ending Sequence scene loads.
+    from BaseClasses import ItemClassification
+    from . import CrowCountryItem
+    pool = Region("Pool", self.player, self.multiworld)
+    victory = CrowCountryLocation(self.player, "Edward Crowley", None, pool)
+    victory.place_locked_item(CrowCountryItem("Victory", ItemClassification.progression, None, self.player))
+    pool.locations.append(victory)
+
     menu_region.connect(roadside)
     roadside.connect(park_entrance)
     park_entrance.connect(station_square)
     station_square.connect(restroom)
     station_square.connect(fairy_forest)
+    fairy_forest.connect(pool)
 
     #menu_region.connect(roadside, "Vacation Beach Main Gate", lambda state: state.has("Vacation Beach Gate Unlock", self.player))
 
@@ -40,5 +51,6 @@ def create_regions(self):
     self.multiworld.regions.append(station_square)
     self.multiworld.regions.append(restroom)
     self.multiworld.regions.append(fairy_forest)
+    self.multiworld.regions.append(pool)
     
     #self.multiworld.completion_condition[self.player] = lambda state: (state.has_group("Gates", self.player, 3))
