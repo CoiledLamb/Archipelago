@@ -63,7 +63,9 @@ class CrowCountryWorld(World):
                 for i in range(count):
                     self.multiworld.itempool.append(self.create_item(item["name"]))
 
-        junk = 10
+        # fill the rest of the pool to exactly match the location count
+        real_items = sum(max(0, item["count"]) for item in item_table)
+        junk = len(location_table) - real_items
         for i in range(junk):
             self.multiworld.itempool.append(self.create_item(self.get_filler_item_name()))
 

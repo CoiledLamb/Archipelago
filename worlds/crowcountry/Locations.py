@@ -10,6 +10,21 @@ class Area(str, Enum):
     Restroom = "Restroom"
     FairyForest = "Fairy Forest"
     FairyPool = "Fairy Pool"
+    Restaurant = "Restaurant"
+    Theatre = "Theatre"
+    CorridorC = "Corridor C"
+    CorridorD = "Corridor D"
+    Mansion = "Mansion"
+    SwanBoats = "Swan Boats"
+    DigSite = "Dig Site"
+    Witchwood = "Witchwood"
+    Arcade = "Arcade"
+    Dungeon = "Dungeon"
+    BoatRide = "Boat Ride"
+    UndergroundLab = "Underground Lab"
+    Submarine = "Submarine"
+    Railway = "Railway"
+    GiftShop = "Gift Shop"
 
 class LocationInfo(TypedDict):
     name: str
@@ -136,6 +151,92 @@ location_table: List[LocationInfo] = [
         "id": base_id + 20,
         "breakable": False,
         "area": Area.FairyPool,
+        "additionalAreas": []},
+
+    # Key-item grant interactables (vanilla spots of the 11 remaining key
+    # items; grant anatomy in datamine/KEYITEMS.md, icons/state names in
+    # datamine/keyitem_icons.py output)
+    {"name": "Restaurant - Treasure Chest",       # vanilla Silver Key
+        "id": base_id + 21,
+        "breakable": False,
+        "area": Area.Restaurant,
+        "additionalAreas": []},
+    {"name": "Theatre - Fairy Head",              # vanilla Golden Key
+        "id": base_id + 22,
+        "breakable": False,
+        "area": Area.Theatre,
+        "additionalAreas": []},
+    {"name": "Corridor C - Julie Baron",          # vanilla Golden Key (2nd source)
+        "id": base_id + 23,
+        "breakable": False,
+        "area": Area.CorridorC,
+        "additionalAreas": []},
+    {"name": "Corridor D - Safe",                 # vanilla Crank Handle
+        "id": base_id + 24,
+        "breakable": False,
+        "area": Area.CorridorD,
+        "additionalAreas": []},
+    {"name": "Mansion - Demon Painting",          # vanilla Gemstone
+        "id": base_id + 25,
+        "breakable": False,
+        "area": Area.Mansion,
+        "additionalAreas": []},
+    {"name": "Swan Boats - Fence",                # vanilla Chain
+        "id": base_id + 26,
+        "breakable": False,
+        "area": Area.SwanBoats,
+        "additionalAreas": []},
+    {"name": "Dig Site - Hole",                   # vanilla Woeful Mask
+        "id": base_id + 27,
+        "breakable": False,
+        "area": Area.DigSite,
+        "additionalAreas": []},
+    {"name": "Witchwood - Cauldron",              # vanilla Trident
+        "id": base_id + 28,
+        "breakable": False,
+        "area": Area.Witchwood,
+        "additionalAreas": []},
+    {"name": "Arcade - Change Machine",           # vanilla Data Disk
+        "id": base_id + 29,
+        "breakable": False,
+        "area": Area.Arcade,
+        "additionalAreas": []},
+    {"name": "Dungeon - Acid Bottle",             # vanilla Acid Bottle
+        "id": base_id + 30,
+        "breakable": False,
+        "area": Area.Dungeon,
+        "additionalAreas": []},
+    {"name": "Boat Ride - Battery",               # vanilla Battery
+        "id": base_id + 31,
+        "breakable": False,
+        "area": Area.BoatRide,
+        "additionalAreas": []},
+    {"name": "Underground Lab - Cures",           # vanilla Glass Vials
+        "id": base_id + 32,
+        "breakable": False,
+        "area": Area.UndergroundLab,
+        "additionalAreas": []},
+
+    # Weapon grant interactables (bool grants; datamine/weapon_grants.py)
+    {"name": "Submarine - Prize Safe",            # vanilla Shotgun (gallery minigame)
+        "id": base_id + 33,
+        "breakable": False,
+        "area": Area.Submarine,
+        "additionalAreas": []},
+    {"name": "Railway - Flamethrower",            # vanilla Flamethrower
+        "id": base_id + 34,
+        "breakable": False,
+        "area": Area.Railway,
+        "additionalAreas": []},
+    {"name": "Gift Shop - Gun Drawer",            # vanilla Magnum
+        "id": base_id + 35,
+        "breakable": False,
+        "area": Area.GiftShop,
+        "additionalAreas": []},
+    {"name": "Gift Shop - Cash Register",         # vanilla Magnum (2nd source, code entry)
+        "id": base_id + 36,
+        "breakable": False,
+        "area": Area.GiftShop,
         "additionalAreas": []},
 ]
 
